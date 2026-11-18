@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comet Courier — Deliver the parcels, dodge the rocks</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: #050514;
+    color: #eaf2ff; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 16px;
+  }
+  h1 { margin: 0 0 4px; font-size: 22px; letter-spacing: .04em; }
+  p.sub { margin: 0 0 12px; color: #9fb3d9; font-size: 14px; text-align: center; max-width: 920px; }
+  #wrap { width: min(960px, 100%); }
+  canvas {
+    display: block; width: 100%; height: auto; background: #070718;
+    border: 1px solid #2a3a66; border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.55);
+  }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+  button {
+    background: #1b2a55; color: #eaf2ff; border: 1px solid #3b548f;
+    border-radius: 8px; padding: 8px 14px; font-size: 14px; cursor: pointer;
+  }
+  button:hover { background: #24386e; }
+  button.primary { background: #0f7a5c; border-color: #2fbf96; }
+  .hint { color: #8ea3c8; font-size: 13px; text-align: center; margin-top: 8px; }
+  #test-results { display: none; white-space: pre-wrap; font-family: monospace; font-size: 12px;
+    background: #0b1226; border: 1px solid #2a3a66; border-radius: 8px; padding: 10px; margin-top: 12px; max-width: 960px; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <h1>☄️ Comet Courier</h1>
+  <p class="sub">Pilot a courier ship. Pick up a glowing parcel, deliver it to the station of the
+  <b>same colour</b>, dodge asteroids, and grab star fuel. Complete <b>5 deliveries</b> before the timer runs out.</p>
+  <canvas id="game" width="960" height="600" aria-label="Comet Courier game canvas"></canvas>
+  <div class="row">
+    <button id="btn-start" class="primary" type="button">Start / Restart (R)</button>
+    <button id="btn-pause" type="button">Pause (P)</button>
+    <button id="btn-sound" type="button">Sound: Off (M)</button>
+  </div>
+  <p class="hint">Move: WASD / Arrow keys &nbsp;•&nbsp; Boost: click the canvas (costs fuel, aims at the click)
+  &nbsp;•&nbsp; Pause: P &nbsp;•&nbsp; Restart: R &nbsp;•&nbsp; Sound: M (off by default)</p>
+  <div id="test-results" aria-live="polite"></div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
